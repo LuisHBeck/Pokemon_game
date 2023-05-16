@@ -87,12 +87,7 @@ class Pokemon():
             poke_user.remove_life(attack)
             print(f'{poke_pc.name} attack = {attack:.2f}')
             print(f'{poke_user.name} life = {poke_user.life:.2f}')
-
-            # print(f"Now its {poke_user.name} turn")
-            # attack = poke_user.attack * percentage
-            # poke_pc.remove_life(attack)
-            # print(f'{poke_user.name} attack = {attack:.2f}')
-            # print(f'{poke_pc.name} life = {poke_pc.life:.2f}')
+            
 
         while poke_user.life > 0 or poke_pc.life > 0:
             game_resume = [
