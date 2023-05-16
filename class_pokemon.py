@@ -29,10 +29,8 @@ class Pokemon():
         return self._speed
     
 
-    @life.setter
-    def life(self, value):
+    def remove_life(self, value):
         self._life -= value
-        return self._life
     
 
     @attack.setter
@@ -65,14 +63,24 @@ class Pokemon():
             poke_pc.attack(0.5)
 
 
-    def attack_percentage(poke):
-        percentage = round(random(), 2)
-        attack = poke.attack * percentage
-        return attack
-
-
     def attacking(poke_user, poke_pc):
-        ...
+        percentage = round(random(), 2)
+
+        if poke_user.speed > poke_pc.speed:
+            print(f"{poke_user.name} starts attacking!")
+            attack = poke_user.attack * percentage
+            poke_pc.remove_life(attack)
+            print(f'{poke_user.name} attack = {attack:.2f}')
+            print(f'{poke_pc.name} life = {poke_pc.life:.2f}')
+        else: 
+            print(f"{poke_pc.name} starts attacking!")
+            attack = poke_pc.attack * percentage
+            poke_user.remove_life(attack)
+            print(f'{poke_pc.name} attack = {attack:.2f}')
+            print(f'{poke_user.name} life = {poke_user.life:.2f}')
+
+        # while 
+            
 
 
 
