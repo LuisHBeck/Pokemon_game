@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from random import random
+import inquirer
 
 class Pokemon():
     def __init__(self, name, life, attack, speed):
@@ -72,6 +73,14 @@ class Pokemon():
             poke_pc.remove_life(attack)
             print(f'{poke_user.name} attack = {attack:.2f}')
             print(f'{poke_pc.name} life = {poke_pc.life:.2f}')
+            print()
+            print(f"Now its {poke_pc.name} turn!")
+            attack = poke_pc.attack * percentage
+            poke_user.remove_life(attack)
+            print(f'{poke_pc.name} attack = {attack:.2f}')
+            print(f'{poke_user.name} life = {poke_user.life:.2f}')
+
+
         else: 
             print(f"{poke_pc.name} starts attacking!")
             attack = poke_pc.attack * percentage
@@ -79,9 +88,47 @@ class Pokemon():
             print(f'{poke_pc.name} attack = {attack:.2f}')
             print(f'{poke_user.name} life = {poke_user.life:.2f}')
 
-        # while 
-            
+            # print(f"Now its {poke_user.name} turn")
+            # attack = poke_user.attack * percentage
+            # poke_pc.remove_life(attack)
+            # print(f'{poke_user.name} attack = {attack:.2f}')
+            # print(f'{poke_pc.name} life = {poke_pc.life:.2f}')
 
+        while poke_user.life > 0 or poke_pc.life > 0:
+            game_resume = [
+            inquirer.List('choice',
+                            message="Select:",
+                            choices=['Attack', 'Run']
+                            ),
+            ]
+            answers = inquirer.prompt(game_resume)
+
+            if answers['choice'] == 'Run':
+                print(f'{poke_pc.name} won! You ran!!')
+                quit()
+            else:
+                percentage = round(random(), 2)
+                print(f"Its {poke_user.name} turn")
+                attack = poke_user.attack * percentage
+                poke_pc.remove_life(attack)
+                print(f'{poke_user.name} attack = {attack:.2f}')
+                if poke_pc.life < 0:
+                    print(f'{poke_pc.name} died')
+                    print(f"{poke_user.name} won! Congrats!")
+                    quit()
+                print(f'{poke_pc.name} life = {poke_pc.life:.2f}')
+                print()
+                
+                percentage = round(random(), 2)
+                print(f"Now its {poke_pc.name} turn!")
+                attack = poke_pc.attack * percentage
+                poke_user.remove_life(attack)
+                print(f'{poke_pc.name} attack = {attack:.2f}')
+                if poke_user.life < 0:
+                    print(f'{poke_user.name} died')
+                    print(f"{poke_pc.name} won! Congrats!")
+                    quit()
+                print(f'{poke_user.name} life = {poke_user.life:.2f}')
 
 
 class Grass(Pokemon):
