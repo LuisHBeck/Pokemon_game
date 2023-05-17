@@ -1,5 +1,4 @@
-from class_pokemon import *
+from functions import play
 
-squirtle = Watter('Squirtle', 100, 15, 20)
-print(squirtle.speed)
-    
+if __name__ == "__main__":
+    play()

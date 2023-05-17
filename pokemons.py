@@ -6,5 +6,3 @@ charizard = Fire("Charizard", 78, 53, 100)
 venusaur = Grass("Venusaur", 78, 76, 80)
 
 pokemons = [blastoise, charizard, venusaur]
-
-Pokemon.attacking(charizard, blastoise)

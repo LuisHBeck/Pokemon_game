@@ -76,14 +76,13 @@ class Pokemon():
     def attacking(poke_user, poke_pc):
         percentage = round(random(), 2)
 
-        Water.benefits(poke_user, poke_pc)
-        Fire.benefits(poke_user, poke_pc)
-        Grass.benefits(poke_user, poke_pc)
+        # Water.benefits(poke_user, poke_pc)
+        # Fire.benefits(poke_user, poke_pc)
+        # Grass.benefits(poke_user, poke_pc)
 
-        print(poke_user.attack)
-        print(poke_pc.attack)
+        # print(poke_user.attack)
+        # print(poke_pc.attack)
         
-
         if poke_user.speed > poke_pc.speed:
             print(f"{collors['X']}{poke_user.name} {collors['C']} starts attacking!")
             sleep(1)
@@ -92,10 +91,10 @@ class Pokemon():
             print(f"{collors['X']}{poke_user.name} {collors['C']} attack = {attack:.2f}")
             sleep(1)
             print(f'{collors["Z"]}{poke_pc.name}{collors["C"]} life = {poke_pc.life:.2f}')
-            sleep(1)
+            sleep(3)
             print()
             print(f"Now its {poke_pc.name} turn!")
-            sleep(1)
+            sleep(3)
             attack = poke_pc.attack * percentage
             poke_user.remove_life(attack)
             print(f'{collors["Z"]}{poke_pc.name} {collors["C"]} attack = {attack:.2f}')
@@ -130,6 +129,7 @@ class Pokemon():
                 sleep(1)
                 quit()
             else:
+                sleep(3)
                 percentage = round(random(), 2)
                 print(f"Its {collors['X']}{poke_user.name} {collors['C']} turn")
                 sleep(1)
@@ -144,7 +144,7 @@ class Pokemon():
                     sleep(1)
                     quit()
                 print(f'{collors["Z"]}{poke_pc.name} {collors["C"]} life = {poke_pc.life:.2f}')
-                sleep(1)
+                sleep(3)
                 print()
                 
                 percentage = round(random(), 2)
