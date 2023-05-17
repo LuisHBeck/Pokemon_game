@@ -4,9 +4,9 @@ import inquirer
 from time import sleep
 
 collors = {
-    'X': '\33[7;32m',
+    'X': '\33[32m',
     'Y': '\33[4;35m',
-    'Z': '\33[7;34m',
+    'Z': '\33[31m',
     'N': '\33[7;31m',
     'C': '\33[m'
 }
